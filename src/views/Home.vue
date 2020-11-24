@@ -3,7 +3,7 @@
     <template>
   <v-data-table
     :headers="headers"
-    :items="items"
+    :items="anuncios"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
@@ -12,17 +12,19 @@
 </template>
 
 <script>
+import { db } from '../controller/firestore';
+
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  props: ["items"],
   components: {
     HelloWorld
   },
    data () {
       return {
+        anuncios: [],
         headers: [
           { text: 'Titulo', value: "titulo" },
           { text: 'precio', value: "precio" },
@@ -32,6 +34,9 @@ export default {
       
       }
     },
+  firestore: {
+    anuncios: db.collection('anuncios'),
+  },
     
 }
 </script>

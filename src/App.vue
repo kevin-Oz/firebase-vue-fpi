@@ -31,14 +31,13 @@
     </v-app-bar>
 
     <v-main>
-      <home :items= "anunciosFirestore"/>
+      <home/>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Home from './views/Home';
-import { db, anuncios } from './controller/firestore';
 import NewAds from './components/NewAds.vue';
 
 export default {
@@ -48,22 +47,12 @@ export default {
     Home,
     NewAds
   },
-
   data: () => ({
-    anunciosFirestore: [],
-
   }),
 
   methods: {
-   
-   async initList(){
-     this.anunciosFirestore = await anuncios;
-    }
-
   },
-   created() {
-     this.initList();
-    },
+  
 
 };
 </script>

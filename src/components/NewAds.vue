@@ -118,9 +118,6 @@ import { db }   from '../controller/firestore';
         }
 
     },
-    created(){
-       
-    },
     };
 </script>
 
