@@ -1,7 +1,13 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <template>
+  <v-data-table
+    :headers="headers"
+    :items="items"
+    :items-per-page="5"
+    class="elevation-1"
+  ></v-data-table>
+</template>
   </div>
 </template>
 
@@ -11,8 +17,21 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
+  props: ["items"],
   components: {
     HelloWorld
-  }
+  },
+   data () {
+      return {
+        headers: [
+          { text: 'Titulo', value: "titulo" },
+          { text: 'precio', value: "precio" },
+          { text: 'Sistema Operativo', value: "so" },
+          { text: 'descripcion', value: "descripcion" },
+        ],
+      
+      }
+    },
+    
 }
 </script>
